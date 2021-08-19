@@ -9,17 +9,17 @@ export const GroupsUserProvider = ({ children }) => {
   const [token] = useState(
     JSON.parse(localStorage.getItem("@Kenzinho:token")) || ""
   );
-
-  const getGroups = (token) => {
-    api
-      .get("groups/subscriptions/", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => {
-        setGroups([...response.data]);
-      })
-      .catch((err) => toast.error("Grupos não podem ser carregados"));
-  };
+  useEffect(() => {
+      api
+        .get("groups/subscriptions/", {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((response) => {
+          setGroups([...response.data]);
+        })
+        .catch((err) => toast.error("Grupos não podem ser carregados"));
+    };
+  }, []);
 
   const subscribeToAGroup = (id) => {
     api

@@ -28,7 +28,7 @@ const Tags = () => {
 
   useEffect(() => {
     getGroups(token);
-  }, [groups]);
+  }, [token, getGroups]);
 
   const { handleActivieDelete, handleGoalDelete } =
     useListActivitiesGoals();
