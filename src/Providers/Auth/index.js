@@ -10,13 +10,6 @@ export const AuthProvider = ({ children }) => {
 
   const [auth, setAuth] = useState(token);
 
-  // const decodeToken = (token) => {
-  //   if (!!auth) {
-  //     const decoded = jwtDecode(token);
-  //     return decoded;
-  //   }
-  // };
-
   const signIn = (data, history) => {
     api
       .post("/sessions/", data)
@@ -26,7 +19,6 @@ export const AuthProvider = ({ children }) => {
         const decoded = jwtDecode(access);
         localStorage.setItem("@Kenzinho:token", JSON.stringify(access));
         setAuth(access);
-        console.log(decoded.user_id)
         history.push("/dashboard", { data: decoded.user_id });
       })
       .catch((err) =>

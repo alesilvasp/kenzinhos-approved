@@ -109,8 +109,11 @@ const CreateActivitiesModal = ({ groupId }) => {
                     />
                   </InputContainer>
                   <InputContainer>
-                    <input
-                      type="datetime-local"
+                    <TextField
+                      size="small"
+                      id="outlined-basic"
+                      variant="outlined"
+                      type="date"
                       {...register("realization_time")}
                     />
                   </InputContainer>
