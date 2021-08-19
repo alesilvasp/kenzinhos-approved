@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
-import { Accordion, Typography, AccordionDetails } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import DeleteForeverSharpIcon from '@material-ui/icons/DeleteForeverSharp';
+import { useEffect } from "react";
+import { Accordion, Typography, AccordionDetails } from "@material-ui/core";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import DeleteForeverSharpIcon from "@material-ui/icons/DeleteForeverSharp";
 import {
   DescriprionContainer,
   SubTitleContainer,
@@ -10,18 +10,17 @@ import {
   AccordionSummary,
   MainContainer,
   SubTitles,
-} from './styles';
-import SearchBar from '../SearchBar';
-import CreateActivitiesModal from '../ActivitiesModal';
-import CreateGoalsModal from '../GoalsModal';
-import { useListActivitiesGoals } from '../../Providers/ActivitiesGoals';
-import { useGroupsUser } from '../../Providers/GroupsUser';
-import { useAuth } from '../../Providers/Auth';
-import UpdateActivities from '../UpdateActivitiesModal';
-import UpdateGoal from '../UpdateGoalModal';
+} from "./styles";
+import SearchBar from "../SearchBar";
+import CreateActivitiesModal from "../ActivitiesModal";
+import CreateGoalsModal from "../GoalsModal";
+import { useListActivitiesGoals } from "../../Providers/ActivitiesGoals";
+import { useGroupsUser } from "../../Providers/GroupsUser";
+import { useAuth } from "../../Providers/Auth";
+import UpdateActivities from "../UpdateActivitiesModal";
+import UpdateGoal from "../UpdateGoalModal";
 
 const Tags = () => {
-
   const classes = useStyles();
   const { token } = useAuth();
   const { getGroups, groups } = useGroupsUser();
@@ -30,8 +29,7 @@ const Tags = () => {
     getGroups(token);
   }, [token, getGroups]);
 
-  const { handleActivieDelete, handleGoalDelete } =
-    useListActivitiesGoals();
+  const { handleActivieDelete, handleGoalDelete } = useListActivitiesGoals();
 
   return (
     <MainContainer>
@@ -40,8 +38,8 @@ const Tags = () => {
         <Accordion key={group.id} className={classes.root}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
-            aria-controls='panel1a-content'
-            id='panel1a-header'
+            aria-controls="panel1a-content"
+            id="panel1a-header"
           >
             <Typography className={classes.heading}>
               <div key={group.id}>
@@ -69,14 +67,14 @@ const Tags = () => {
                   <p>
                     Finalizar em:{" "}
                     {new Date(activity.realization_time).toLocaleDateString(
-                      'pt-BR'
+                      "pt-BR"
                     )}
                   </p>
                   <UpdateActivities activityId={activity.id} />
                   <button onClick={() => handleActivieDelete(activity.id)}>
                     <DeleteForeverSharpIcon
-                      color='secondary'
-                      className='deleteIcon'
+                      color="secondary"
+                      className="deleteIcon"
                     />
                   </button>
                 </DescriprionContainer>
@@ -97,8 +95,8 @@ const Tags = () => {
                   <UpdateGoal goalId={goal.id} />
                   <button onClick={() => handleGoalDelete(goal.id)}>
                     <DeleteForeverSharpIcon
-                      color='secondary'
-                      className='deleteIcon'
+                      color="secondary"
+                      className="deleteIcon"
                     />
                   </button>
                 </DescriprionContainer>

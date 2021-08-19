@@ -1,45 +1,44 @@
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
-import styled from 'styled-components';
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
+import styled from "styled-components";
 
 export const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
-    marginTop: '20px',
-    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.5)',
+    width: "100%",
+    marginTop: "20px",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.5)",
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
-    width: '100%',
+    width: "100%",
   },
   lowerMenu: {
-    width: '100%',
-    fontFamily: 'Source Sans Pro',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    fontSize: '16px',
+    width: "100%",
+    fontFamily: "Source Sans Pro",
+    fontStyle: "normal",
+    fontWeight: "700",
+    fontSize: "16px",
   },
   content: {
     margin: 0,
   },
-  
 }));
 
 export const AccordionSummary = withStyles({
   root: {
     backgroundColor: "rgba(0, 0, 0, .0)",
-    borderBottom: '1px solid rgba(0, 0, 0, .125)',
+    borderBottom: "1px solid rgba(0, 0, 0, .125)",
     marginBottom: -1,
     minHeight: 56,
-    '&$expanded': {
+    "&$expanded": {
       minHeight: 56,
     },
   },
   content: {
     margin: 0,
-    '&$expanded': {
-      margin: '12px 0',
+    "&$expanded": {
+      margin: "12px 0",
     },
   },
   expanded: {},
@@ -53,10 +52,29 @@ export const SubTitles = styled.div`
 `;
 
 export const MainContainer = styled.div`
-  width: 100%;
-  height: 50%;
+   
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  
+  marginLeft: 100,
+  height: 65vh;
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 10px;
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--blue-color);
+    border-radius: 10px;
+  }
 `;
 
 export const TitleContainer = styled.div`
@@ -103,37 +121,37 @@ export const DescriprionContainer = styled.div`
     font-size: 12px;
     line-height: 28px;
     color: black;
-  };
-  
-  button{
+  }
+
+  button {
     margin-bottom: 10px;
-    border:none;
-  };
+    border: none;
+  }
 
-  .updateIcon{
-        color: var(--blue-color);
-        :hover{
-          color: green;
-        }
-        :active{
-          color: darkgreen ;
-        }
-  };
+  .updateIcon {
+    color: var(--blue-color);
+    :hover {
+      color: green;
+    }
+    :active {
+      color: darkgreen;
+    }
+  }
 
-  .deleteIcon{
-        color:red;
-        :hover{
-          color: tomato;
-        }
-        :active{
-          color: darkred;
-        }
-  };
-  
-  @media screen and (min-width: 769px){
+  .deleteIcon {
+    color: red;
+    :hover {
+      color: tomato;
+    }
+    :active {
+      color: darkred;
+    }
+  }
+
+  @media screen and (min-width: 769px) {
     flex-direction: row;
 
-    button{
+    button {
       margin-bottom: 0px;
     }
   }
